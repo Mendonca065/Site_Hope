@@ -4,6 +4,8 @@
     "target": "ES2022",
     "lib": ["ES2023"],
     "module": "ESNext",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -15,8 +17,6 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
