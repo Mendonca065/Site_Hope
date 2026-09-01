@@ -1,4 +1,4 @@
-import { Navbar } from "./Header";
+import { Header } from "./elements/Header";
 import { Footer } from "./elements/Footer";
 import { useEffect } from "react";
 
@@ -16,7 +16,7 @@ export const Layout = ({ title, children }: Layoutprops) => {
   }, [title]);
   return (
     <>
-      <Navbar />
+      <Header />
 
       <main className="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">
         {children}

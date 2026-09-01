@@ -1,73 +1,75 @@
-import { Container } from "../shared/Container";
+// Substitua o caminho do import da imagem abaixo se necessário, 
+// dependendo de onde fica a pasta do seu Header.
 
-export const Footer = () => {
+import logoHangar3 from '../../assets/images/Hangar3logo.png';
+
+export function Footer() {
+  const text = "AMADOS PARA AMAR ✦ CURADOS PARA CURA ✦ TRANSFORMADOS PARA TRANSFORMAR ✦ ";
+  const repeatedText = Array(4).fill(text).join("");
+
   return (
-    <footer className="pt-8 pb-12 bg-[#1A1A1A] text-white mt-16">
-      <Container>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {/* Logo and Mission */}
-          <div className="space-y-6">
-            <div className="flex flex-col space-y-4">
-              <img src="/logo-high-transparent.png" alt="HOPE '25 Logo" className="w-32" />
-            </div>
-            <p className="text-gray-400">
-              Um evento que vai transformar vidas e fortalecer a fé da nossa geração.
-            </p>
-          </div>
-
-          {/* Contact Information */}
-          <div className="lg:col-span-2 lg:justify-self-end">
-            <h3 className="text-xl font-semibold mb-6 text-[#FF9800]">Contato</h3>
-            <div className="space-y-4">
-              <p className="flex items-center gap-2 text-gray-400">
-                <i className="fas fa-map-marker-alt text-[#FF9800]"></i>
-                Av. José Liberato, 157 - Igreja Batista Miramar, João Pessoa, PB
-              </p>
-              <p className="flex items-center gap-2">
-                <i className="fas fa-phone text-[#FF9800]"></i>
-                <a href="tel:+558398765432" className="text-gray-400 hover:text-[#FF9800] transition-colors">
-                  (83) 98765-4321
-                </a>
-              </p>
-              <p className="flex items-center gap-2">
-                <i className="fas fa-envelope text-[#FF9800]"></i>
-                <a href="mailto:contato@hope25.com.br" className="text-gray-400 hover:text-[#FF9800] transition-colors">
-                  contato@hope25.com.br
-                </a>
-              </p>
-              <div className="flex gap-4 pt-4">
-                <a href="#" className="text-[#FF9800] hover:text-[#F57C00] transition-colors">
-                  <i className="fab fa-instagram fa-lg"></i>
-                </a>
-                <a href="#" className="text-[#FF9800] hover:text-[#F57C00] transition-colors">
-                  <i className="fab fa-facebook fa-lg"></i>
-                </a>
-                <a href="#" className="text-[#FF9800] hover:text-[#F57C00] transition-colors">
-                  <i className="fab fa-youtube fa-lg"></i>
-                </a>
-              </div>
-              {/* Mapa */}
-              <div className="mt-6 rounded-xl overflow-hidden border border-[#FF9800]/20 shadow-lg">
-                <iframe
-                  title="Mapa Localização HOPE"
-                  src="https://www.google.com/maps?q=Av.+jose+liberato,+157,+Jo%C3%A3o+Pessoa,+PB&output=embed"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-[200px]"
-                ></iframe>
-              </div>
-            </div>
+    <footer className="relative w-full -mt-[10px] bg-[#111111] pt-32 pb-12 flex flex-col items-center overflow-hidden z-20">
+      
+      {/* MARQUEE LARANJA */}
+      <div className="absolute top-0 left-0 w-full flex items-center justify-center pointer-events-none z-30">
+        <div className="absolute top-[-5px] md:top-[-10px] w-full flex items-center bg-[#EA5F25] py-2 md:py-6 transform rotate--1 md:rotate--3 scale-[1.05] shadow-[0_15px_30px_rgba(0,0,0,0.4)]">
+          <div className="flex whitespace-nowrap animate-marquee pointer-events-auto">
+            <span className="font-['Inter',_sans-serif] font-bold text-[14px] md:text-[24px] leading-none tracking-[2px] uppercase text-white pr-4">
+              {repeatedText}
+            </span>
+            <span className="font-['Inter',_sans-serif] font-bold text-[14px] md:text-[24px] leading-none tracking-[2px] uppercase text-white pr-4">
+              {repeatedText}
+            </span>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p className="text-gray-500">© 2025 HOPE. Todos os direitos reservados.</p>
+      <div className="relative z-10 w-full max-w-5xl px-4 md:px-8 flex flex-col items-center mt-8 md:mt-12">
+        
+        {/* LOGO */}
+        <img 
+          src={logoHangar3} 
+          alt="Hangar 3 - Go to heaven" 
+          className="w-full max-w-[280px] md:max-w-[450px] object-contain mb-10 md:mb-14 hover:scale-105 transition-transform duration-500"
+        />
+
+        {/* NAVEGAÇÃO */}
+        <nav className="flex flex-wrap justify-center gap-6 md:gap-12 mb-8 md:mb-10">
+          {['Sobre', 'Line-Up', 'Ingressos', 'FAQ'].map((item) => (
+            <a 
+              key={item}
+              href={`#${item.toLowerCase()}`} 
+              className="font-['Montserrat',_sans-serif] font-black text-[#EA5F25] text-[12px] md:text-[14px] uppercase tracking-wider hover:text-white transition-colors duration-300"
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
+
+        {/* REDES SOCIAIS */}
+        <div className="flex items-center justify-center gap-6 mb-16 md:mb-24">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EA5F25" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#EA5F25" stroke="#EA5F25" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/>
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#111111"/>
+            </svg>
+          </a>
         </div>
-      </Container>
+
+        {/* COPYRIGHT */}
+        <p className="font-['Inter',_sans-serif] text-[#666666] text-[10px] md:text-[12px]">
+          © 2026 Hangar 3. Todos os direitos reservados.
+        </p>
+        
+      </div>
     </footer>
   );
-};
+}
