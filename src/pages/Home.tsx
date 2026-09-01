@@ -8,7 +8,7 @@ import { VideoSobre } from "../components/sections/VideoSobre";
 
 export function Home() {
   return (
-    <>npm
+    <>
       <Hero />
       <MarqueeBanner />
       <VideoSobre />

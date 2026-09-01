@@ -1,5 +1,4 @@
-// Substitua o caminho do import da imagem abaixo se necessário, 
-// dependendo de onde fica a pasta do seu Header.
+// src/components/elements/Footer.tsx
 
 import logoHangar3 from '../../assets/images/Hangar3logo.png';
 
@@ -8,11 +7,11 @@ export function Footer() {
   const repeatedText = Array(4).fill(text).join("");
 
   return (
-    <footer className="relative w-full -mt-[10px] bg-[#111111] pt-32 pb-12 flex flex-col items-center overflow-hidden z-20">
+    <footer className="relative w-full -mt-[10px] bg-[#111111] pt-32 pb-12 flex flex-col items-center overflow-x-clip z-20">
       
       {/* MARQUEE LARANJA */}
-      <div className="absolute top-0 left-0 w-full flex items-center justify-center pointer-events-none z-30">
-        <div className="absolute top-[-5px] md:top-[-10px] w-full flex items-center bg-[#EA5F25] py-2 md:py-6 transform rotate--1 md:rotate--3 scale-[1.05] shadow-[0_15px_30px_rgba(0,0,0,0.4)]">
+      <div className="absolute top-0 left-0 w-full overflow-hidden flex items-center justify-center pointer-events-none z-30">
+        <div className="w-[110vw] -ml-[5vw] flex items-center bg-[#EA5F25] py-2 md:py-4 transform rotate-1 md:rotate-2 shadow-[0_15px_30px_rgba(0,0,0,0.4)]">
           <div className="flex whitespace-nowrap animate-marquee pointer-events-auto">
             <span className="font-['Inter',_sans-serif] font-bold text-[14px] md:text-[24px] leading-none tracking-[2px] uppercase text-white pr-4">
               {repeatedText}
