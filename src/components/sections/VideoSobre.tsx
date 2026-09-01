@@ -5,7 +5,7 @@ import { PixelReveal } from '../ui/PixelReveal';
 
 // Vídeo e Capa
 import videoCover from '../../assets/images/cover-video.jpg'; 
-import hopeVideo from '../../assets/videos/hope-video.mp4'; 
+import hopeVideo from '/hope-video.mp4'; 
 
 // Backgrounds
 import videoSobre1 from '../../assets/images/videosobre_1.png';
