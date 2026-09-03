@@ -35,7 +35,7 @@ export function Faq() {
 
   return (
     /* O -mt-[2px] puxa a seção milímetros para cima, engolindo a linha fina que estava vazando */
-    <section id="faq" className="relative z-10 w-full -mt-[200px] py-20 md:py-32 bg-[#EBE2D4] flex justify-center">
+    <section id="faq" className="relative z-10 w-full -mt-[8px] md:-mt-[200px] py-20 md:py-32 bg-[#EBE2D4] flex justify-center">
       
       <div className="w-full max-w-7xl px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
         
