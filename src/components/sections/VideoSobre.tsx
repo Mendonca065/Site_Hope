@@ -1,9 +1,8 @@
 // src/components/sections/VideoSobre.tsx
 import { useState } from 'react';
-import { Play } from 'lucide-react';
 import { PixelReveal } from '../ui/PixelReveal';
 
-// Vídeo e Capa (Removi o import do .mp4 local)
+// Vídeo e Capa
 import videoCover from '../../assets/images/cover-video.jpg'; 
 
 // Backgrounds
@@ -27,8 +26,6 @@ type VideoStage = 'idle' | 'animating' | 'playing';
 export function VideoSobre() {
   const [stage, setStage] = useState<VideoStage>('idle');
 
-  // Não precisamos mais do useRef e do useEffect para dar 'play()'
-  // O YouTube fará isso automaticamente com o autoplay=1
   const handlePlayClick = () => setStage('animating');
   const handleAnimationComplete = () => setStage('playing');
 
@@ -57,7 +54,7 @@ export function VideoSobre() {
         {/* PARTE 1: O VÍDEO */}
         <div className="w-full max-w-5xl aspect-video bg-black rounded-[2rem] md:rounded-[3rem] overflow-hidden border-4 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] relative flex items-center justify-center mb-24 md:mb-72">
           
-          {/* Iframe do YouTube: Só é montado na tela quando o usuário clica em Play */}
+          {/* Iframe do YouTube */}
           {stage !== 'idle' && (
             <iframe
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${stage === 'playing' ? 'opacity-100 z-30' : 'opacity-0 z-0'}`}
@@ -69,16 +66,14 @@ export function VideoSobre() {
             ></iframe>
           )}
 
+          {/* CAPA CLICÁVEL (Sem botão extra) */}
           {stage === 'idle' && (
-            <>
-              <img src={videoCover} alt="Capa" className="absolute inset-0 w-full h-full object-cover z-20" />
-              <button 
-                onClick={handlePlayClick}
-                className="absolute z-40 bg-[#FFC700] p-6 rounded-full border-[3px] border-black hover:scale-110 hover:bg-black text-black hover:text-[#FFC700] transition-all duration-300 shadow-[4px_4px_0px_rgba(0,0,0,1)]"
-              >
-                <Play fill="currentColor" size={48} className="ml-2" />
-              </button>
-            </>
+            <img 
+              src={videoCover} 
+              alt="Capa do Vídeo" 
+              onClick={handlePlayClick}
+              className="absolute inset-0 w-full h-full object-cover z-20 cursor-pointer hover:scale-105 transition-transform duration-500" 
+            />
           )}
 
           {stage === 'animating' && (

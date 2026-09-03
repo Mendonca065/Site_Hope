@@ -1,9 +1,10 @@
 // src/components/sections/Hero.tsx
 import heroBg from '../../assets/images/hero-background.png';
-import hopeLogo from '../../assets/images/hope-logo-sticker.webp';
+import hopeLogo from '../../assets/images/hope-logo-sticker.png';
 import confText from '../../assets/images/Conferência.png';
 import seasonText from '../../assets/images/Season 09.png';
 import DotLens from '../ui/DotLens'; 
+import { MapPin, Calendar } from 'lucide-react'; // Import dos ícones
 
 export function Hero() {
   return (
@@ -13,7 +14,6 @@ export function Hero() {
         backgroundImage: `url(${heroBg})`,
         backgroundColor: '#EBE2D4',
       }}
-      
     >
       
       <div className="absolute inset-0 z-0">
@@ -29,10 +29,9 @@ export function Hero() {
 
       <div className="relative z-10 flex flex-col items-center px-4 w-full max-w-5xl pointer-events-none">
         
-        {/* CONTAINER DA LOGO: Permite posicionar os textos livremente ao redor dela */}
+        {/* CONTAINER DA LOGO */}
         <div className="relative flex justify-center items-center mt-4">
           
-          {/* Texto Superior Esquerdo */}
           <img 
             src={confText} 
             alt="Conferência" 
@@ -45,7 +44,6 @@ export function Hero() {
             className="relative w-full max-w-[30rem] md:max-w-2xl lg:max-w-4xl object-contain drop-shadow-xl z-10 pointer-events-auto transition-transform duration-500 ease-out hover:scale-[1.01] hover:-translate-y-1"
           />
 
-          {/* Texto Inferior Direito */}
           <img 
             src={seasonText} 
             alt="Season 09" 
@@ -54,7 +52,7 @@ export function Hero() {
           
         </div>
         
-        {/* LINK DO SYMPLA ATUALIZADO AQUI */}
+        {/* BOTÃO SYMPLA */}
         <a 
           href="https://www.sympla.com.br/evento/conferEncia-hope-2026/3566344" 
           target="_blank"
@@ -63,6 +61,26 @@ export function Hero() {
         >
           Garanta Seu Lugar
         </a>
+
+        {/* TAGS DE DATA E LOCAL */}
+        <div className="mt-16 flex flex-col md:flex-row items-center gap-3 md:gap-6 pointer-events-auto">
+          
+          <div className="flex items-center gap-2 bg-[#111111]/80 backdrop-blur-sm border border-white/10 px-2.5 py-1.25 rounded-full drop-shadow-lg hover:bg-black transition-colors duration-300">
+            <Calendar size={20} className="text-[#FF6B2B]" />
+            <span className="font-['Inter',_sans-serif] text-white font-medium text-sm md:text-base tracking-wide">
+              24 a 26 de Setembro
+            </span>
+          </div>
+
+          <a href="#localizacao" className="flex items-center gap-2 bg-[#111111]/80 backdrop-blur-sm border border-white/10 px-2.5 py-1.25 rounded-full drop-shadow-lg hover:bg-black transition-colors duration-300 cursor-pointer">
+            <MapPin size={20} className="text-[#FF6B2B]" />
+            <span className="font-['Inter',_sans-serif] text-white font-medium text-sm md:text-base tracking-wide">
+              Hangar 3 (IBM) • João Pessoa, PB
+            </span>
+          </a>
+
+        </div>
+
       </div>
 
       <div className="absolute bottom-0 left-0 w-full h-8 md:h-12 bg-[#E6A900] border-t-2 border-black z-20 pointer-events-none"></div>

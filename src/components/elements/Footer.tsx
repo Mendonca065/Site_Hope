@@ -5,12 +5,10 @@ export function Footer() {
   const text = "AMADOS PARA AMAR ✦ CURADOS PARA CURAR ✦ TRANSFORMADOS PARA TRANSFORMAR ✦ ";
   const repeatedText = Array(4).fill(text).join("");
 
-  // 1. MAPEAMENTO DE LINKS CORRIGIDO
-  // Aqui definimos exatamente qual palavra aponta para qual "id" no site
   const navLinks = [
     { name: 'Sobre', id: '#sobre' },
-    { name: 'Line-Up', id: '#lineup' }, // Corrigido (sem hífen no id)
-    { name: 'Ingressos', id: '#hero' }, // Aponta para o topo onde está o botão do Sympla
+    { name: 'Line-Up', id: '#lineup' }, 
+    { name: 'Ingressos', id: '#hero' }, 
     { name: 'FAQ', id: '#faq' }
   ];
 
@@ -41,7 +39,7 @@ export function Footer() {
         />
 
         {/* NAVEGAÇÃO */}
-        <nav className="flex flex-wrap justify-center gap-6 md:gap-12 mb-10 md:mb-14">
+        <nav className="flex flex-wrap justify-center gap-6 md:gap-12 mb-16 md:mb-20">
           {navLinks.map((item) => (
             <a 
               key={item.name}
@@ -52,6 +50,32 @@ export function Footer() {
             </a>
           ))}
         </nav>
+
+        {/* LOCALIZAÇÃO (MAPA DO GOOGLE) */}
+        <div className="w-full flex flex-col items-center mb-16 md:mb-20">
+          <h3 className="font-['Montserrat',_sans-serif] font-bold text-white text-[16px] md:text-[20px] uppercase tracking-widest mb-6">
+          
+          </h3>
+          
+          <div id="localizacao" className="w-full max-w-3xl h-[250px] md:h-[350px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[4px] border-[#EA5F25] shadow-[8px_8px_0px_rgba(234,95,37,1)] hover:translate-x-1 hover:-translate-y-1 transition-transform duration-300">
+            {/* iframe com loading="lazy" para não afetar a performance */}
+            <iframe 
+  src="https://maps.google.com/maps?q=Igreja%20Batista%20de%20Miramar,%20Jo%C3%A3o%20Pessoa&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+  width="100%" 
+  height="100%" 
+  style={{ border: 0 }} 
+  allowFullScreen 
+  loading="lazy" 
+  referrerPolicy="no-referrer-when-downgrade"
+  title="Mapa Igreja Batista de Miramar"
+></iframe>
+          </div>
+          
+          <p className="font-['Inter',_sans-serif] text-[#aaaaaa] text-sm md:text-base mt-5 text-center px-4 max-w-lg">
+            <strong>Igreja Batista de Miramar (IBM)</strong><br/>
+            João Pessoa, Paraíba
+          </p>
+        </div>
 
         {/* CONTATOS E REDES SOCIAIS */}
         <div className="flex flex-col items-center justify-center gap-6 mb-16 md:mb-24">

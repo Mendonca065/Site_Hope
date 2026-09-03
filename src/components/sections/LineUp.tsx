@@ -1,5 +1,5 @@
 // src/components/sections/LineUp.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import bgLineUp from '../../assets/images/lineuppng.png';
 
@@ -35,22 +35,7 @@ export function LineUp() {
   const [isVisible, setIsVisible] = useState(false);
   const [origin, setOrigin] = useState({ x: 0, y: 0 });
 
-  // A MÁGICA ACONTECE AQUI NO USE-EFFECT
-  useEffect(() => {
-    if (activeSpeaker) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-      
-      // Simula um scroll invisível para "acordar" o AOS imediatamente após fechar
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-        window.dispatchEvent(new Event('scroll'));
-      }, 100);
-    }
-    
-    return () => { document.body.style.overflow = ''; };
-  }, [activeSpeaker]);
+  // A trava de tela (overflow hidden) foi removida completamente daqui.
 
   const handleOpen = (e: React.MouseEvent<HTMLImageElement>, speaker: Speaker) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -65,7 +50,8 @@ export function LineUp() {
     setTimeout(() => setIsVisible(true), 10);
   };
 
-  const handleClose = () => {
+  const handleClose = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setIsVisible(false); 
     setTimeout(() => setActiveSpeaker(null), 200); 
   };
@@ -83,7 +69,6 @@ export function LineUp() {
       />
 
       <div className="relative z-10 w-full max-w-7xl px-4 md:px-8 flex flex-col items-center">
-        
         <div className={`w-full grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 pt-8 transition-all duration-300 ${activeSpeaker ? 'opacity-30 blur-[2px] pointer-events-none' : 'md:group'}`}>
           {speakersData.map((speaker, index) => (
             <img 
@@ -100,20 +85,18 @@ export function LineUp() {
             />
           ))}
         </div>
-
       </div>
 
       {activeSpeaker && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
           
           <div 
             className="absolute inset-0 bg-black/40 backdrop-blur-sm" 
-            onClick={handleClose}
+            onClick={() => handleClose()}
           />
 
           <div 
-            onClick={handleClose}
-            className="relative z-50 w-[95%] md:w-[90%] max-w-5xl flex flex-col md:flex-row bg-[#EBE2D4] border-[4px] border-black rounded-[1.5rem] md:rounded-[2rem] shadow-[12px_12px_0px_rgba(0,0,0,1)] overflow-hidden cursor-pointer transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            className="relative z-50 w-full max-w-5xl flex flex-col md:flex-row bg-[#EBE2D4] border-[4px] border-black rounded-[1.5rem] md:rounded-[2rem] shadow-[12px_12px_0px_rgba(0,0,0,1)] max-h-[90vh] overflow-y-auto transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]"
             style={{
               transform: isVisible 
                 ? 'translate(0px, 0px) scale(1)' 
@@ -121,34 +104,45 @@ export function LineUp() {
               opacity: isVisible ? 1 : 0
             }}
           >
-            <div className="w-full md:w-2/5 bg-[#EA5F25] flex items-center justify-center p-6 md:p-10 border-b-[4px] md:border-b-0 md:border-r-[4px] border-black h-[350px] md:h-[550px] overflow-hidden">
+            {/* Botão X (Fixo no topo) */}
+            <button 
+              onClick={handleClose}
+              className="absolute top-4 right-4 z-[60] bg-white text-black p-2 rounded-full border-[3px] border-black hover:bg-[#EA5F25] hover:text-white hover:scale-110 transition-all duration-300 shadow-[2px_2px_0px_rgba(0,0,0,1)] flex items-center justify-center"
+              aria-label="Fechar"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <div className="w-full md:w-2/5 bg-[#EA5F25] flex items-center justify-center p-6 md:p-10 border-b-[4px] md:border-b-0 md:border-r-[4px] border-black h-[300px] md:h-[550px] shrink-0">
               <img 
                 src={activeSpeaker.image} 
                 alt={activeSpeaker.name} 
-                className="w-auto h-full max-h-[300px] md:max-h-[480px] object-contain drop-shadow-2xl"
+                className="w-auto h-full max-h-[250px] md:max-h-[480px] object-contain drop-shadow-2xl"
               />
             </div>
             
             <div className="w-full md:w-3/5 p-6 md:p-10 flex flex-col justify-center">
-              <h3 className="font-['Montserrat',_sans-serif] font-black text-2xl md:text-4xl text-black mb-3 uppercase leading-none tracking-tight">
+              <h3 className="font-['Montserrat',_sans-serif] font-black text-2xl md:text-4xl text-black mb-3 uppercase leading-none tracking-tight pr-10">
                 {activeSpeaker.name}
               </h3>
               <div className="w-12 h-[4px] bg-[#EA5F25] mb-5 md:mb-6"></div>
               
-              <p className="font-['Inter',_sans-serif] text-base md:text-xl text-gray-800 leading-relaxed font-medium">
+              <p className="font-['Inter',_sans-serif] text-base md:text-xl text-gray-800 leading-relaxed font-medium pb-4">
                 {activeSpeaker.bio}
               </p>
               
-              <span className="mt-6 md:mt-8 text-[#EA5F25] font-bold text-xs md:text-sm uppercase tracking-widest opacity-80 flex items-center gap-2">
+              {/* Botão Fechar (Embaixo) também continua lá */}
+              <button 
+                onClick={handleClose}
+                className="mt-4 md:mt-8 w-fit text-[#EA5F25] font-bold text-xs md:text-sm uppercase tracking-widest hover:opacity-70 flex items-center gap-2 transition-opacity"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 Clique para fechar
-              </span>
+              </button>
             </div>
           </div>
-
         </div>
       )}
-
     </section>
   );
 }
