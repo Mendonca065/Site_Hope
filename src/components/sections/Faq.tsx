@@ -14,7 +14,7 @@ const faqData = [
   },
   {
     pergunta: "Preciso levar algo no dia?",
-    resposta: "Sugerimos trazer uma garrafa de água, sua Bíblia e um caderno para anotações. Se tiver sua credencial em QR Code no celular, será ótimo para agilizar a entrada!"
+    resposta: "Sim, é indispensável apresentar um documento de identidade. Além disso, sugerimos que você traga uma garrafa de água, sua Bíblia e um caderno para anotações. Ter a sua credencial em QR Code no celular em mãos também será ótimo para agilizar a entrada!"
   },
   {
     pergunta: "Tem estacionamento no local?",
@@ -22,7 +22,7 @@ const faqData = [
   },
   {
     pergunta: "Posso levar crianças?",
-    resposta: "Sim! Teremos uma estrutura especial e uma equipe preparada para receber e cuidar das crianças durante o evento (Kids)."
+    resposta: "Não teremos estrutura ou espaço infantil dedicado (Kids). Caso decida levar, a criança ficará sob a total responsabilidade dos pais ou responsáveis, ocupando a mesma cadeira ou o colo durante toda a programação. No entanto, orientamos que, se possível, os responsáveis evitem trazer crianças. Trabalhamos com um tema forte, profundo e muito marcante, pensado para um público específico, o que pode não ser adequado para os pequenos."
   }
 ];
 
@@ -35,7 +35,7 @@ export function Faq() {
 
   return (
     /* O -mt-[2px] puxa a seção milímetros para cima, engolindo a linha fina que estava vazando */
-    <section className="relative z-10 w-full -mt-[2px] py-20 md:py-32 bg-[#EBE2D4] flex justify-center">
+    <section id="faq" className="relative z-10 w-full -mt-[2px] py-20 md:py-32 bg-[#EBE2D4] flex justify-center">
       
       <div className="w-full max-w-7xl px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
         
@@ -56,7 +56,7 @@ export function Faq() {
 
           {/* Botão corrigido (w-fit impede que ele estique, e o conteúdo não está mais duplicado) */}
           <a 
-            href="https://instagram.com" 
+            href="https://www.instagram.com/hangar3oficial/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex w-fit items-center gap-3 bg-[#111111] text-white px-6 py-3 md:px-8 md:py-4 rounded-full hover:scale-105 hover:bg-black transition-all duration-300"

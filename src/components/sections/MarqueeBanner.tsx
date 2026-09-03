@@ -1,7 +1,7 @@
 // src/components/sections/MarqueeBanner.tsx
 
 export function MarqueeBanner() {
-  const text = "AMADOS PARA AMAR ✦ CURADOS PARA CURA ✦ TRANSFORMADOS PARA TRANSFORMAR ✦ ";
+  const text = "AMADOS PARA AMAR ✦ CURADOS PARA CURAR ✦ TRANSFORMADOS PARA TRANSFORMAR ✦ ";
   // Repete o texto para garantir que telas grandes fiquem preenchidas
   const repeatedText = Array(4).fill(text).join("");
 

@@ -7,12 +7,7 @@ import cardHopeRun from '../../assets/images/HopeRun.png';
 
 export function ProjetosHope() {
   return (
-    /* 
-      AJUSTES DE TAMANHO DA SESSÃO:
-      1. pt-[160px] md:pt-[240px]: Aumentou bastante o espaço em cima do título.
-      2. pb-40 md:pb-[250px]: Aumentou bastante o espaço no fundo, deixando a sessão bem maior e mais longa.
-    */
-    <section className="relative z-10 w-full -mt-[40px] md:-mt-[80px] pt-[160px] md:pt-[240px] pb-40 md:pb-[350px] bg-[#EBE2D4] overflow-hidden flex flex-col items-center ">
+    <section id="projetos" className="relative z-10 w-full -mt-[40px] md:-mt-[80px] pt-[160px] md:pt-[240px] pb-40 md:pb-[350px] bg-[#EBE2D4] overflow-hidden flex flex-col items-center ">
       
       {/* Background Laranja Decorativo */}
       <div
@@ -20,51 +15,47 @@ export function ProjetosHope() {
         style={{ backgroundImage: `url(${bgOutrosProjetos})` }}
       />
 
-      {/* Container Principal em Coluna (Título em cima, Cards embaixo) */}
       <div className="relative z-10 w-full max-w-6xl px-4 md:px-8 flex flex-col items-center">
         
-        {/* Título Centralizado no Topo */}
-        {/* 
-          AJUSTE DO TÍTULO: Substituí o scale-200 por max-w-[800px] (celular) e max-w-[1000px] (desktop).
-          Também ajustei a margem inferior (mb-16 md:mb-24) para dar um respiro saudável antes dos cards.
-        */}
+        {/* Título Animado com AOS */}
         <img 
+          data-aos="fade-down"
           src={tituloOutrosProjetos} 
           alt="O Movimento Não Para" 
           className="w-full max-w-[800px] md:max-w-[1000px] object-contain drop-shadow-xl mb-16 md:mb-24 hover:scale-105 transition-transform duration-500"
         />
 
-        {/* 
-          AJUSTE DOS CARDS: 
-          Troquei o gap para gap-8 md:gap-16 lg:gap-24 para afastar os cards um do outro.
-        */}
         <div className="flex flex-row justify-center items-center gap-8 md:gap-16 lg:gap-24 w-full">
           
-          {/* Card 1: HOPE IDE */}
+          {/* Card 1: HOPE IDE (Surge Primeiro - delay de 100ms) */}
           <a 
-            href="https://seulink-hopeide.com" // Insira o link aqui
+            href="https://seulink-hopeide.com" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-1/2 max-w-[500px] hover:-translate-y-3 transition-transform duration-300 drop-shadow-xl" 
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="w-1/2 max-w-[500px] group hover:-translate-y-4 hover:drop-shadow-[0_25px_35px_rgba(234,95,37,0.4)] transition-all duration-500 drop-shadow-xl" 
           >
             <img 
               src={cardHopeIde} 
               alt="Hope IDE" 
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
             />
           </a>
 
-          {/* Card 2: HOPE RUN */}
+          {/* Card 2: HOPE RUN (Surge Depois - delay de 300ms criando a cascata) */}
           <a 
-            href="https://seulink-hoperun.com" // Insira o link aqui
+            href="https://www.instagram.com/hoperunpb/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-1/2 max-w-[500px] hover:-translate-y-3 transition-transform duration-300 drop-shadow-xl" 
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="w-1/2 max-w-[500px] group hover:-translate-y-4 hover:drop-shadow-[0_25px_35px_rgba(234,95,37,0.4)] transition-all duration-500 drop-shadow-xl" 
           >
             <img 
               src={cardHopeRun} 
               alt="Hope Run" 
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
             />
           </a>
           

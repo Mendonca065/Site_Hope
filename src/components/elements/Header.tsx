@@ -1,5 +1,5 @@
 // src/components/layout/Header.tsx
-import hopeLogo from '../../assets/images/hope-logo-sticker.png';
+import hopeLogo from '../../assets/images/hope-logo-sticker.webp';
 
 export function Header() {
   return (
@@ -17,15 +17,19 @@ export function Header() {
 
         {/* LINKS (Direita) */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
-          <a href="#inscricoes" className="text-white font-bold uppercase tracking-wider text-sm hover:text-black transition-colors">
+          {/* Apontando para #hero */}
+          <a href="#hero" className="text-white font-bold uppercase tracking-wider text-sm hover:text-black transition-colors">
             Inscrições Grátis
           </a>
+          {/* Apontando para #sobre */}
           <a href="#sobre" className="text-white font-bold uppercase tracking-wider text-sm hover:text-black transition-colors">
             Sobre
           </a>
+          {/* Apontando para #lineup */}
           <a href="#lineup" className="text-white font-bold uppercase tracking-wider text-sm hover:text-black transition-colors">
             Line-up
           </a>
+          {/* Apontando para #faq */}
           <a href="#faq" className="text-white font-bold uppercase tracking-wider text-sm hover:text-black transition-colors">
             FAQ
           </a>

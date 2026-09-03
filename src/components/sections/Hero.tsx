@@ -1,18 +1,19 @@
 // src/components/sections/Hero.tsx
 import heroBg from '../../assets/images/hero-background.png';
-import hopeLogo from '../../assets/images/hope-logo-sticker.png';
+import hopeLogo from '../../assets/images/hope-logo-sticker.webp';
 import confText from '../../assets/images/Conferência.png';
 import seasonText from '../../assets/images/Season 09.png';
 import DotLens from '../ui/DotLens'; 
 
 export function Hero() {
   return (
-    <section 
+    <section id="hero"
       className="relative w-full h-[calc(100vh-56px)] min-h-[600px] flex flex-col items-center justify-center overflow-hidden bg-no-repeat bg-[length:340%_auto] bg-[position:-780px_top] md:bg-cover md:bg-[position:center_center]"
       style={{
         backgroundImage: `url(${heroBg})`,
         backgroundColor: '#EBE2D4',
       }}
+      
     >
       
       <div className="absolute inset-0 z-0">
@@ -53,8 +54,11 @@ export function Hero() {
           
         </div>
         
+        {/* LINK DO SYMPLA ATUALIZADO AQUI */}
         <a 
-          href="#inscricoes" 
+          href="https://www.sympla.com.br/evento/conferEncia-hope-2026/3566344" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-16 md:mt-16 bg-[#FFC700] text-black border-[3px] border-black rounded-full px-12 py-5 md:px-12 md:py-4 font-black text-lg md:text-xl uppercase tracking-wider hover:bg-black hover:text-[#FFC700] transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-[4px_4px_0px_rgba(0,0,0,1)] pointer-events-auto"
         >
           Garanta Seu Lugar

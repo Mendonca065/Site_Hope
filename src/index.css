@@ -98,3 +98,34 @@ body {
     animation: marquee 30s linear infinite;
   }
 }
+
+/* Adicione no final do seu index.css */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes pulse-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+.animate-breathe {
+  animation: pulse-breathe 2.5s ease-in-out infinite;
+}
