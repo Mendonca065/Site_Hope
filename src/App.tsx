@@ -1,6 +1,7 @@
 // src/App.tsx
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { Header } from "./components/elements/Header";
 import { Home } from "./pages/Home";
 import { Footer } from "./components/elements/Footer";
@@ -29,6 +30,7 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+        <Analytics />
       </div>
     </Router>
   );
