@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - HOPE</title>
+</head>
+<body class="bg-neutral-900 text-white p-8 font-sans">
+  <div class="max-w-2xl mx-auto space-y-6">
+    <div class="flex justify-between items-center border-b border-neutral-700 pb-4">
+      <h1 class="text-2xl font-bold">Controle do Telão</h1>
+      <button id="btn-reset" class="bg-neutral-700 hover:bg-neutral-600 px-4 py-2 rounded text-sm transition">Voltar p/ QR Code</button>
+    </div>
+
+    <div id="questions-list" class="space-y-4"></div>
+
+    <div class="border-t border-neutral-700 pt-6 flex gap-4">
+      <button id="btn-result" class="flex-1 bg-amber-600 hover:bg-amber-500 py-3 rounded-lg font-bold text-lg transition">Mostrar Resultado no Telão</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/admin-dinamica.ts"></script>
+</body>
+</html>

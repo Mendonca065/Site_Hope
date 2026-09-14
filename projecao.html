@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Projeção - HOPE</title>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col justify-center items-center p-12 overflow-hidden font-sans select-none">
+  
+  <div id="view-idle" class="text-center space-y-6">
+    <h1 class="text-7xl font-black text-amber-400 tracking-wider">CONFERÊNCIA HOPE</h1>
+    <p class="text-3xl text-neutral-400">Aponte a câmera para o QR Code e participe</p>
+    <div class="mt-8 inline-block p-4 bg-white rounded-2xl shadow-2xl">
+      <!-- Coloque a imagem do seu QR Code real depois -->
+      <div class="w-64 h-64 bg-neutral-200 text-black flex items-center justify-center font-bold text-center p-4">QR CODE AQUI</div>
+    </div>
+  </div>
+
+  <div id="view-active" class="hidden w-full max-w-5xl space-y-12">
+    <h2 id="screen-question" class="text-5xl font-extrabold text-center leading-tight text-neutral-100"></h2>
+    
+    <!-- Novo contador focado apenas no SIM -->
+    <div class="space-y-4 pt-12 text-center">
+      <div class="text-3xl font-bold text-neutral-400 uppercase tracking-widest">Pessoas que disseram sim</div>
+      <div id="sim-counter" class="text-[12rem] leading-none font-black text-emerald-400 tracking-tighter shadow-emerald-500/20 drop-shadow-2xl transition-all duration-200">0</div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/projecao.ts"></script>
+</body>
+</html>

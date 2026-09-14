@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOPE - Votação</title>
+</head>
+<body class="bg-neutral-950 text-white flex flex-col items-center justify-center min-h-screen p-6 font-sans select-none">
+  
+  <div id="screen-idle" class="text-center space-y-4">
+    <h1 class="text-3xl font-black text-amber-400">HOPE</h1>
+    <p class="text-neutral-400">Olhe para o telão! A pergunta aparecerá em instantes.</p>
+  </div>
+
+  <div id="screen-voting" class="hidden text-center w-full max-w-sm space-y-6">
+    <h2 id="question-text" class="text-2xl font-bold leading-snug"></h2>
+    <div class="grid gap-4 pt-4">
+      <button id="btn-sim" class="bg-emerald-600 active:scale-95 transition py-6 rounded-2xl text-2xl font-bold shadow-lg">SIM</button>
+      <button id="btn-nao" class="bg-rose-600 active:scale-95 transition py-6 rounded-2xl text-2xl font-bold shadow-lg">NÃO</button>
+    </div>
+  </div>
+
+  <div id="screen-voted" class="hidden text-center space-y-4">
+    <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl font-bold">✓</div>
+    <h2 class="text-2xl font-bold">Voto Registrado!</h2>
+  </div>
+
+  <!-- Aqui está a ponte ligando o HTML ao cérebro (TypeScript) -->
+  <script type="module" src="/src/participar.ts"></script>
+</body>
+</html>
